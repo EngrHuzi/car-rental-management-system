@@ -1,0 +1,678 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+\usepackage{tabularx}
+
+% Page setup
+\geometry{margin=1in}
+
+% Colors
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{linkcolor}{rgb}{0.2,0.2,0.8}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkcolor,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={RentalPro - Car Rental Management System},
+    pdfauthor={RentalPro Team},
+}
+
+% Code listing style
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% Title formatting
+\titleformat{\section}
+  {\normalfont\LARGE\bfseries\color{blue!70!black}}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\Large\bfseries\color{blue!60!black}}{\thesubsection}{1em}{}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{RentalPro Documentation}
+\lhead{\leftmark}
+\cfoot{\thepage}
+
+% Document
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+
+    {\Huge\bfseries RentalPro\par}
+    \vspace{0.5cm}
+    {\Large AI-Powered Car Rental Management System\par}
+    \vspace{2cm}
+
+    \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,width=0.8\textwidth]
+        \centering
+        \textbf{A modern, full-stack car rental management platform built with cutting-edge technologies.}
+    \end{tcolorbox}
+
+    \vspace{2cm}
+
+    \begin{tabular}{ll}
+        \textbf{Next.js:} & 16.1.1 \\
+        \textbf{React:} & 19.2.3 \\
+        \textbf{TypeScript:} & 5.0 \\
+        \textbf{Tailwind CSS:} & 4.0 \\
+        \textbf{MySQL:} & 8.0 \\
+        \textbf{Prisma:} & Latest \\
+    \end{tabular}
+
+    \vfill
+
+    {\large \today\par}
+\end{titlepage}
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+% Main Content
+\section{Overview}
+
+\textbf{RentalPro} is a comprehensive, enterprise-grade car rental management system designed to streamline fleet operations, enhance customer experience, and provide actionable business insights through AI-powered analytics.
+
+\subsection{What Makes RentalPro Special?}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Modern UI/UX}: Vibrant gradient-based design system with smooth animations
+    \item \textbf{AI Integration}: Intelligent chatbot and automated business insights
+    \item \textbf{Real-time Analytics}: Live dashboards with interactive charts and KPIs
+    \item \textbf{Enterprise Security}: JWT authentication with email verification
+    \item \textbf{Fully Responsive}: Optimized for desktop, tablet, and mobile devices
+    \item \textbf{High Performance}: Built with Next.js 16 for optimal speed and SEO
+    \item \textbf{Type-Safe}: Full TypeScript support for reduced bugs
+    \item \textbf{Real-time Updates}: Instant data synchronization across all modules
+\end{itemize}
+
+\subsection{Who Is This For?}
+
+\begin{itemize}[leftmargin=*]
+    \item Car rental businesses looking to digitize operations
+    \item Fleet management companies
+    \item Vehicle sharing platforms
+    \item Entrepreneurs building rental services
+    \item Developers learning modern full-stack development
+\end{itemize}
+
+\section{Key Features}
+
+\subsection{Vehicle Management}
+
+Complete fleet control with comprehensive vehicle tracking:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Add/Edit/Delete Vehicles}: Full CRUD operations with validation
+    \item \textbf{Multi-Brand Support}: Manage 136+ vehicles across 39 different brands
+    \item \textbf{Real-time Availability}: Automatic status updates based on rental schedules
+    \item \textbf{Vehicle Details}: Track model, brand, daily pricing, and availability status
+    \item \textbf{Search \& Filter}: Quick vehicle lookup with advanced filtering
+    \item \textbf{Bulk Operations}: Import/export vehicle data (CSV support)
+    \item \textbf{Maintenance Tracking}: Schedule and track vehicle maintenance (upcoming feature)
+\end{itemize}
+
+\subsection{Customer Management}
+
+Streamlined customer relationship management:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Customer Profiles}: Complete contact information and rental history
+    \item \textbf{Soft Delete}: Mark customers as deleted without losing historical data
+    \item \textbf{Rental History}: Track all past and current rentals per customer
+    \item \textbf{Contact Management}: Email, phone, and address tracking
+    \item \textbf{Customer Analytics}: View customer lifetime value and rental patterns
+    \item \textbf{Quick Actions}: One-click access to customer rentals and feedback
+    \item \textbf{Export Data}: Generate customer reports in multiple formats
+\end{itemize}
+
+\subsection{Rental System}
+
+Efficient rental booking and management:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Smart Booking}: Create rentals with automatic availability checking
+    \item \textbf{Date Validation}: Prevent overlapping bookings automatically
+    \item \textbf{Cost Calculator}: Real-time rental cost estimation based on duration
+    \item \textbf{Status Tracking}: Monitor rental lifecycle (active, completed, canceled)
+    \item \textbf{Rental Timeline}: Visual representation of booking periods
+    \item \textbf{Modification Support}: Update rental dates and status
+    \item \textbf{Automatic Vehicle Updates}: Vehicle availability syncs with rental status
+    \item \textbf{Rental Extensions}: Allow customers to extend rental periods
+\end{itemize}
+
+\subsection{Analytics Dashboard}
+
+Comprehensive business intelligence:
+
+\subsubsection{Revenue Tracking}
+
+\begin{itemize}[leftmargin=*]
+    \item Daily Revenue Charts with animated bar charts
+    \item Time Period Selection (7, 30, or 90 days)
+    \item Revenue Breakdown: Total, average, and peak revenue metrics
+    \item Growth Indicators with visual representation
+    \item Forecasting with AI-powered predictions
+\end{itemize}
+
+\subsubsection{Fleet Utilization}
+
+\begin{itemize}[leftmargin=*]
+    \item Real-time utilization percentage
+    \item \textbf{Color-coded Indicators}:
+    \begin{itemize}
+        \item Yellow: <50\% (Low utilization)
+        \item Green: 50-79\% (Good utilization)
+        \item Red: $\geq$80\% (High utilization)
+    \end{itemize}
+    \item Available Vehicles: Live count of ready-to-rent vehicles
+    \item Usage Patterns: Identify peak and off-peak periods
+    \item AI recommendations for fleet management
+\end{itemize}
+
+\section{Tech Stack}
+
+\subsection{Frontend Technologies}
+
+\subsubsection{Core Framework}
+
+\begin{description}
+    \item[Next.js 16.1.1] ~
+    \begin{itemize}
+        \item App Router for file-based routing
+        \item Server Components for improved performance
+        \item API Routes for backend functionality
+        \item Built-in image optimization
+        \item Automatic code splitting
+    \end{itemize}
+
+    \item[React 19.2.3] ~
+    \begin{itemize}
+        \item Latest features and optimizations
+        \item Server Components support
+        \item Improved hydration
+        \item Concurrent rendering
+    \end{itemize}
+
+    \item[TypeScript 5.0] ~
+    \begin{itemize}
+        \item Full type safety
+        \item Enhanced IntelliSense
+        \item Compile-time error detection
+        \item Better refactoring support
+    \end{itemize}
+\end{description}
+
+\subsubsection{Styling \& UI}
+
+\begin{description}
+    \item[Tailwind CSS v4] Utility-first CSS framework with JIT compilation
+    \item[Framer Motion] Declarative animations with spring physics
+    \item[shadcn/ui] Beautifully designed, accessible components
+    \item[Lucide React] 1000+ customizable icons
+\end{description}
+
+\subsection{Backend Technologies}
+
+\begin{description}
+    \item[MySQL 8.0] ACID-compliant relational database
+    \item[Prisma ORM] Type-safe database client with auto-generated types
+    \item[JWT] Stateless authentication with jsonwebtoken
+    \item[Bcrypt] Secure password hashing
+    \item[Nodemailer] Email sending with SMTP support
+\end{description}
+
+\section{Installation}
+
+\subsection{Prerequisites}
+
+Before installing RentalPro, ensure your system meets these requirements:
+
+\begin{enumerate}
+    \item \textbf{Node.js} (v18.0.0 or higher)
+    \item \textbf{MySQL} (v8.0 or higher)
+    \item \textbf{Git} (Latest version)
+\end{enumerate}
+
+\subsection{Installation Steps}
+
+\subsubsection{Step 1: Clone the Repository}
+
+\begin{lstlisting}[language=bash]
+# Using HTTPS
+git clone https://github.com/yourusername/car-rental-management-sys.git
+
+# Navigate to project directory
+cd car-rental-management-sys/my-app
+\end{lstlisting}
+
+\subsubsection{Step 2: Install Dependencies}
+
+\begin{lstlisting}[language=bash]
+# Using npm (recommended)
+npm install
+\end{lstlisting}
+
+This installs:
+\begin{itemize}
+    \item Next.js and React core libraries
+    \item Prisma ORM and client
+    \item Authentication packages (JWT, bcrypt)
+    \item UI components (Tailwind, Framer Motion, shadcn/ui)
+    \item Validation libraries (Zod)
+    \item Email service (Nodemailer)
+\end{itemize}
+
+\subsubsection{Step 3: Environment Configuration}
+
+Create a \texttt{.env} file in the root directory:
+
+\begin{lstlisting}[language=bash]
+# Database Configuration
+DATABASE_URL="mysql://root:yourpassword@localhost:3306/car_rental_db"
+
+# JWT Authentication
+JWT_SECRET="your-super-secret-jwt-key-min-32-chars"
+JWT_EXPIRES_IN="7d"
+
+# Email Configuration (Gmail)
+EMAIL_USER="your-email@gmail.com"
+EMAIL_PASSWORD="your-app-specific-password"
+SMTP_HOST="smtp.gmail.com"
+SMTP_PORT="587"
+
+# Application Settings
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+\end{lstlisting}
+
+\subsubsection{Step 4: Database Setup}
+
+\begin{lstlisting}[language=bash]
+# Login to MySQL and create database
+mysql -u root -p
+CREATE DATABASE car_rental_db;
+exit;
+
+# Generate Prisma Client
+npx prisma generate
+
+# Run migrations to create tables
+npx prisma migrate dev --name init
+\end{lstlisting}
+
+\subsubsection{Step 5: Run the Application}
+
+\begin{lstlisting}[language=bash]
+# Start development server
+npm run dev
+
+# Application runs at: http://localhost:3000
+\end{lstlisting}
+
+\section{API Reference}
+
+\subsection{Authentication Endpoints}
+
+\subsubsection{Register User}
+
+\begin{tcolorbox}[colback=gray!5!white,colframe=gray!75!black,title=POST /api/auth/register]
+\textbf{Request Body:}
+\begin{lstlisting}[language=json]
+{
+  "email": "user@example.com",
+  "name": "John Doe",
+  "phone": "+1234567890",
+  "password": "SecurePass123!"
+}
+\end{lstlisting}
+
+\textbf{Response (201):}
+\begin{lstlisting}[language=json]
+{
+  "success": true,
+  "message": "Verification code sent to email",
+  "data": {
+    "userId": "uuid",
+    "email": "user@example.com"
+  }
+}
+\end{lstlisting}
+\end{tcolorbox}
+
+\subsubsection{Login}
+
+\begin{tcolorbox}[colback=gray!5!white,colframe=gray!75!black,title=POST /api/auth/login]
+\textbf{Request Body:}
+\begin{lstlisting}[language=json]
+{
+  "email": "user@example.com",
+  "password": "SecurePass123!"
+}
+\end{lstlisting}
+
+\textbf{Response (200):}
+\begin{lstlisting}[language=json]
+{
+  "success": true,
+  "message": "Login successful",
+  "data": {
+    "token": "jwt-token-here",
+    "user": {
+      "id": "uuid",
+      "email": "user@example.com",
+      "name": "John Doe",
+      "isVerified": true
+    }
+  }
+}
+\end{lstlisting}
+\end{tcolorbox}
+
+\subsection{Vehicle Endpoints}
+
+\subsubsection{Get All Vehicles}
+
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=GET /api/vehicles]
+\textbf{Headers:}
+\begin{lstlisting}
+Authorization: Bearer {token}
+\end{lstlisting}
+
+\textbf{Response (200):}
+\begin{lstlisting}[language=json]
+{
+  "success": true,
+  "data": {
+    "vehicles": [
+      {
+        "id": "uuid",
+        "brand": "Toyota",
+        "model": "Camry",
+        "dailyPrice": 45.00,
+        "isAvailable": true
+      }
+    ]
+  }
+}
+\end{lstlisting}
+\end{tcolorbox}
+
+\section{Database Schema}
+
+\subsection{Database Relationships}
+
+The database consists of 5 main models:
+
+\begin{itemize}
+    \item \textbf{User}: Authentication and account management
+    \item \textbf{Customer}: Customer information and profiles
+    \item \textbf{Vehicle}: Fleet vehicle information
+    \item \textbf{Rental}: Booking and rental records
+    \item \textbf{Feedback}: Customer satisfaction ratings
+\end{itemize}
+
+\textbf{Relationships:}
+\begin{itemize}
+    \item User (1) $\rightarrow$ (Many) Customer
+    \item Customer (1) $\rightarrow$ (Many) Rental
+    \item Vehicle (1) $\rightarrow$ (Many) Rental
+    \item Rental (1) $\rightarrow$ (1) Feedback
+\end{itemize}
+
+\section{Deployment}
+
+\subsection{Deploying to Vercel (Recommended)}
+
+Vercel is the easiest way to deploy Next.js applications:
+
+\subsubsection{Steps}
+
+\begin{enumerate}
+    \item \textbf{Push Code to GitHub}
+    \begin{lstlisting}[language=bash]
+git init
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+    \end{lstlisting}
+
+    \item \textbf{Import to Vercel}
+    \begin{itemize}
+        \item Visit \href{https://vercel.com}{vercel.com}
+        \item Click "New Project"
+        \item Import your GitHub repository
+        \item Vercel auto-detects Next.js configuration
+    \end{itemize}
+
+    \item \textbf{Configure Environment Variables}
+    \begin{itemize}
+        \item Add all variables from \texttt{.env} file
+        \item \texttt{DATABASE\_URL}, \texttt{JWT\_SECRET}, etc.
+    \end{itemize}
+
+    \item \textbf{Deploy}
+    \begin{itemize}
+        \item Click "Deploy"
+        \item Vercel builds and deploys automatically
+        \item You get a \texttt{.vercel.app} domain instantly
+    \end{itemize}
+\end{enumerate}
+
+\section{Security}
+
+\subsection{Security Best Practices Implemented}
+
+\begin{enumerate}
+    \item \textbf{Password Security}:
+    \begin{itemize}
+        \item Bcrypt hashing with salt rounds
+        \item No plain text storage
+        \item Strong password requirements
+    \end{itemize}
+
+    \item \textbf{JWT Security}:
+    \begin{itemize}
+        \item Secret key from environment
+        \item Token expiration
+        \item HTTPS only in production
+    \end{itemize}
+
+    \item \textbf{Input Validation}:
+    \begin{itemize}
+        \item Zod schema validation
+        \item Type checking with TypeScript
+        \item Sanitization of user inputs
+    \end{itemize}
+
+    \item \textbf{SQL Injection Prevention}:
+    \begin{itemize}
+        \item Prisma ORM with parameterized queries
+        \item No raw SQL queries
+    \end{itemize}
+\end{enumerate}
+
+\section{Troubleshooting}
+
+\subsection{Common Issues and Solutions}
+
+\subsubsection{Module not found errors}
+
+\begin{lstlisting}[language=bash]
+# Solution: Clear cache and reinstall
+rm -rf node_modules
+rm package-lock.json
+npm install
+\end{lstlisting}
+
+\subsubsection{Database connection errors}
+
+Check your \texttt{DATABASE\_URL} format:
+\begin{lstlisting}
+# Correct format:
+DATABASE_URL="mysql://user:pass@host:port/database"
+\end{lstlisting}
+
+\subsubsection{Port 3000 already in use}
+
+\begin{lstlisting}[language=bash]
+# macOS/Linux
+lsof -ti:3000 | xargs kill -9
+
+# Windows
+netstat -ano | findstr :3000
+taskkill /PID <PID> /F
+\end{lstlisting}
+
+\section{FAQ}
+
+\subsection{General}
+
+\textbf{Q: Is this project free to use?} \\
+A: Yes, it's open source under MIT license. Use it for personal or commercial projects.
+
+\textbf{Q: Is it production-ready?} \\
+A: Yes, with proper configuration and security measures in place.
+
+\subsection{Technical}
+
+\textbf{Q: Why MySQL instead of PostgreSQL?} \\
+A: MySQL is widely supported and easier to set up. But you can switch to PostgreSQL easily with Prisma.
+
+\textbf{Q: Is it mobile responsive?} \\
+A: Yes, fully responsive for all screen sizes.
+
+\textbf{Q: Can I deploy without Vercel?} \\
+A: Yes, works on any Node.js hosting (AWS, DigitalOcean, Railway, etc.)
+
+\section{Contributing}
+
+We welcome contributions! Here's how you can help:
+
+\subsection{Ways to Contribute}
+
+\begin{enumerate}
+    \item \textbf{Report Bugs}: Create detailed issue reports
+    \item \textbf{Suggest Features}: Propose new functionality
+    \item \textbf{Submit PRs}: Fix bugs or add features
+    \item \textbf{Improve Docs}: Enhance documentation
+    \item \textbf{Share}: Star the repo and spread the word
+\end{enumerate}
+
+\subsection{Commit Message Format}
+
+\begin{lstlisting}
+type(scope): description
+
+[optional body]
+\end{lstlisting}
+
+\textbf{Types:}
+\begin{itemize}
+    \item \texttt{feat}: New feature
+    \item \texttt{fix}: Bug fix
+    \item \texttt{docs}: Documentation
+    \item \texttt{style}: Formatting
+    \item \texttt{refactor}: Code restructuring
+    \item \texttt{test}: Adding tests
+    \item \texttt{chore}: Maintenance
+\end{itemize}
+
+\section{License}
+
+This project is licensed under the \textbf{MIT License}.
+
+\begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!50!black,title=MIT License]
+Copyright (c) 2024 RentalPro
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+\end{tcolorbox}
+
+\section{Roadmap}
+
+\subsection{Upcoming Features}
+
+\subsubsection{v2.0.0 (Q1 2025)}
+\begin{itemize}
+    \item Password reset functionality
+    \item OAuth integration (Google, Facebook)
+    \item Advanced search and filters
+    \item Export data to CSV/PDF
+    \item Email notifications for rentals
+\end{itemize}
+
+\subsubsection{v2.1.0 (Q2 2025)}
+\begin{itemize}
+    \item Multi-language support
+    \item Dark mode
+    \item Mobile app (React Native)
+    \item SMS notifications
+    \item Payment gateway integration
+\end{itemize}
+
+\section{Support \& Contact}
+
+\subsection{Get Help}
+
+\begin{itemize}
+    \item \textbf{Documentation}: This document
+    \item \textbf{Issues}: \href{https://github.com/yourusername/car-rental-sys/issues}{GitHub Issues}
+    \item \textbf{Email}: support@rentalpro.com
+\end{itemize}
+
+\vspace{1cm}
+
+\begin{center}
+\large
+\textbf{Built with care by the RentalPro Team}
+
+\href{https://rentalpro.com}{Website} $\cdot$ \href{https://docs.rentalpro.com}{Documentation} $\cdot$ \href{https://blog.rentalpro.com}{Blog}
+
+\vspace{0.5cm}
+
+\copyright~2024 RentalPro. All rights reserved.
+\end{center}
+
+\end{document}

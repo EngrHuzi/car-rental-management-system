@@ -1,0 +1,98 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+  binaryTargets   = ["native"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                   String    @id @default(uuid())
+  email                String    @unique
+  password             String
+  emailVerified        Boolean   @default(false)
+  verificationToken    String?   @unique
+  verificationExpires  DateTime?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+  sessions             Session[]
+}
+
+model Session {
+  id        String   @id @default(uuid())
+  userId    String
+  token     String   @unique @db.VarChar(500)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([expiresAt])
+}
+
+model Vehicle {
+  id          String   @id @default(uuid())
+  model       String
+  brand       String
+  dailyPrice  Decimal  @db.Decimal(10, 2)
+  isAvailable Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  rentals     Rental[]
+
+  @@unique([model, brand])
+  @@index([isAvailable])
+}
+
+model Customer {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  phone     String
+  isDeleted Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  rentals   Rental[]
+
+  @@index([isDeleted])
+}
+
+enum RentalStatus {
+  active
+  completed
+  canceled
+}
+
+model Rental {
+  id         String       @id @default(uuid())
+  vehicleId  String
+  customerId String
+  startDate  DateTime
+  endDate    DateTime
+  totalCost  Decimal      @db.Decimal(10, 2)
+  status     RentalStatus @default(active)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  vehicle    Vehicle      @relation(fields: [vehicleId], references: [id], onDelete: Restrict)
+  customer   Customer     @relation(fields: [customerId], references: [id], onDelete: Restrict)
+  feedback   Feedback?
+
+  @@index([startDate, endDate])
+  @@index([status])
+}
+
+model Feedback {
+  id        String   @id @default(uuid())
+  rentalId  String   @unique
+  rating    Int
+  comment   String?  @db.Text
+  createdAt DateTime @default(now())
+  rental    Rental   @relation(fields: [rentalId], references: [id], onDelete: Cascade)
+
+  @@index([rating])
+}
