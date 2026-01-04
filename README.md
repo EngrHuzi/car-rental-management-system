@@ -11,6 +11,8 @@
 
 **A modern, full-stack car rental management platform built with cutting-edge technologies.**
 
+### 🌐 [View Live Demo](https://car-rental-management-sys.vercel.app/)
+
 [Features](#-features) • [Demo](#-demo) • [Installation](#-installation) • [Documentation](#-documentation) • [API](#-api-reference) • [Contributing](#-contributing)
 
 </div>
@@ -20,6 +22,7 @@
 ## 📖 Table of Contents
 
 - [Overview](#-overview)
+- [Live Demo](#-live-demo)
 - [Key Features](#-key-features)
 - [Screenshots](#-screenshots)
 - [Tech Stack](#-tech-stack)
@@ -67,6 +70,28 @@
 - Vehicle sharing platforms
 - Entrepreneurs building rental services
 - Developers learning modern full-stack development
+
+---
+
+## 🌐 Live Demo
+
+### 🚀 **[Try RentalPro Live](https://car-rental-management-sys.vercel.app/)**
+
+Experience the full functionality of RentalPro with our live deployment:
+
+- **Landing Page**: Explore the vibrant design and feature overview
+- **User Registration**: Create an account with email verification
+- **Dashboard**: Access all management features after login
+- **Analytics**: View real-time business insights and charts
+- **AI Chatbot**: Interact with the intelligent assistant
+
+**Demo Credentials** (Optional - if you've seeded demo data):
+```
+Email: demo@rentalpro.com
+Password: Demo@123
+```
+
+**Note**: This is a live production deployment on Vercel with full database functionality.
 
 ---
 
@@ -243,7 +268,7 @@ Each module has its own vibrant color scheme:
 ### AI Chatbot
 > Intelligent assistant with starter prompts
 
-*Note: Add actual screenshots to your repository's `/docs/screenshots/` directory*
+*Note: Visit the [live demo](https://car-rental-management-sys.vercel.app/) to see these features in action!*
 
 ---
 
@@ -357,7 +382,7 @@ Each module has its own vibrant color scheme:
 
 ### Deployment & Hosting
 
-- **Vercel**: Recommended platform
+- **Vercel**: Production hosting platform
 - **PlanetScale**: MySQL hosting option
 - **Cloudinary**: Image hosting (optional)
 - **SendGrid**: Email service (alternative to SMTP)
@@ -561,7 +586,7 @@ EMAIL_FROM="RentalPro <noreply@rentalpro.com>"
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
 
 # For production:
-# NEXT_PUBLIC_APP_URL="https://your-domain.com"
+# NEXT_PUBLIC_APP_URL="https://car-rental-management-sys.vercel.app"
 
 # ==========================================
 # OPTIONAL: AI & ANALYTICS
@@ -766,7 +791,7 @@ NODE_ENV="development"
 #### Production (.env.production)
 ```env
 DATABASE_URL="mysql://user:pass@production-db.com:3306/car_rental_prod"
-NEXT_PUBLIC_APP_URL="https://rentalpro.com"
+NEXT_PUBLIC_APP_URL="https://car-rental-management-sys.vercel.app"
 NODE_ENV="production"
 ```
 
@@ -1022,7 +1047,7 @@ npm run analyze (if configured)
 2. **Login**: http://localhost:3000/login
 3. **Register**: http://localhost:3000/register
 4. **Dashboard**: http://localhost:3000/overview (requires login)
-5. **API Docs**: http://localhost:3000/api (coming soon)
+5. **Live Demo**: https://car-rental-management-sys.vercel.app/
 
 ---
 
@@ -2163,7 +2188,7 @@ Vercel is the easiest way to deploy Next.js applications:
      - `JWT_SECRET`
      - `EMAIL_USER`
      - `EMAIL_PASSWORD`
-     - `NEXT_PUBLIC_APP_URL`
+     - `NEXT_PUBLIC_APP_URL` (use your Vercel URL)
 
 4. **Deploy**:
    - Click "Deploy"
@@ -2194,6 +2219,10 @@ Vercel is the easiest way to deploy Next.js applications:
 - Every push to `main` branch auto-deploys to production
 - Pull requests create preview deployments
 - View deployment logs in Vercel dashboard
+
+#### Live Project
+The current live deployment is available at:
+**https://car-rental-management-sys.vercel.app/**
 
 ### Alternative Deployment Options
 
@@ -2664,7 +2693,7 @@ A: Yes, it's open source under MIT license. Use it for personal or commercial pr
 A: Absolutely! The entire design system is in Tailwind config. Modify colors, fonts, etc.
 
 **Q: Is it production-ready?**
-A: Yes, with proper configuration and security measures in place.
+A: Yes, with proper configuration and security measures in place. The live demo at https://car-rental-management-sys.vercel.app/ is a production deployment.
 
 ### Technical
 
@@ -2839,6 +2868,7 @@ Special thanks to:
 ### Get Help
 
 - **Documentation**: You're reading it! 📖
+- **Live Demo**: https://car-rental-management-sys.vercel.app/
 - **Issues**: [GitHub Issues](https://github.com/yourusername/car-rental-sys/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/yourusername/car-rental-sys/discussions)
 - **Email**: support@rentalpro.com
@@ -2886,7 +2916,7 @@ Special thanks to:
 
 ## 🔗 Quick Links
 
-- [Live Demo](https://rentalpro-demo.vercel.app)
+- [Live Demo](https://car-rental-management-sys.vercel.app/)
 - [API Documentation](https://docs.rentalpro.com/api)
 - [Tutorial Videos](https://youtube.com/rentalpro)
 - [Community Forum](https://community.rentalpro.com)
@@ -2901,7 +2931,7 @@ Special thanks to:
 
 **Built with ❤️ and AI by the RentalPro Team**
 
-[Website](https://rentalpro.com) • [Documentation](https://docs.rentalpro.com) • [Blog](https://blog.rentalpro.com)
+[Website](https://car-rental-management-sys.vercel.app/) • [Documentation](https://docs.rentalpro.com) • [Blog](https://blog.rentalpro.com)
 
 © 2024 RentalPro. All rights reserved.
 
